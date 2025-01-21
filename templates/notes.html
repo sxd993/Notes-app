@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <title>Заметки</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='notes.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Мои заметки</h1>
+    </header>
+    <main>
+        <form method="POST">
+            <input type="text" name="note" placeholder="Введите заметку" required>
+            <button type="submit">Добавить</button>
+        </form>
+        <ul class="">
+            {% for note in notes %}
+            <li class="note">
+                {{ note }}
+                <form method="POST" style="display:inline;">
+                    <input type="hidden" name="note_to_delete" value="{{ note }}">
+                    <button type="submit">Удалить</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>    
+    </main>
+</body>
+</html>

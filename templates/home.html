@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+<head>
+    <title>Главная</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Добро пожаловать!</h1>
+        <a href="{{ url_for('notes') }}">Перейти к заметкам</a>
+    </div>
+</body>
+</html>
