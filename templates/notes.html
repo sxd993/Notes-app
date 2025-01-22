@@ -30,7 +30,7 @@
                         <p>{{ note[1] }}</p>
                     </div>
                     <div class="note-actions">
-                        <a to="#">
+                        <a href="{{url_for('edit_note_page', note_id = note[0])}}">
                             <button type="button" class="button-edit">Редактировать</button>
                         </a>
                         <form method="POST">

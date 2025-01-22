@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Редактировать заметку</title>
+    <link rel="stylesheet" href=" {{url_for('static',filename='edit.css')}} ">
 </head>
 <body>
-    <h1>Редактор заметки</h1>
-    <form method="POST">
-        <textarea name="updated_note" required>{{ note }}</textarea>
-        <button type="submit">Сохранить</button>
-    </form>
-    <a href="{{ url_for('notes') }}">Назад</a>
+    <div class="note-editor">
+        <h1 class="note-editor__title">Редактор заметки</h1>
+        <form method="POST" class="note-editor__form">
+            <textarea name="updated_note" class="note-editor__textarea" required>{{ note }}</textarea>
+            <button type="submit" class="note-editor__save-button">Сохранить</button>
+        </form>
+        <a href="{{ url_for('notes_page') }}" class="note-editor__back-link">Назад</a>
+    </div>
 </body>
 </html>

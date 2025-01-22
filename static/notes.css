@@ -7,6 +7,10 @@ body {
   line-height: 1.6;
 }
 
+textarea {
+  resize: none;
+}
+
 header {
   background: linear-gradient(90deg, #0078d7, #005bb5);
   color: white;
