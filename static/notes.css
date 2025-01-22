@@ -1,89 +1,146 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
-    line-height: 1.6;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9fb;
+  color: #333;
+  line-height: 1.6;
 }
+
 header {
-    background-color: #0076d768;
-    color: white;
-    padding: 1rem 0;
-    text-align: center;
+  background: linear-gradient(90deg, #0078d7, #005bb5);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
+
 main {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
 }
-h1 {
-    text-align: center;
-    color: #333;
+
+/* Блок добавления новой заметки */
+.note-input {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
-form {
-    display: flex;
-    justify-content: space-between;
+
+.note-input h2 {
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+  color: #005bb5;
 }
-input[type="text"] {
-    flex: 1;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
+
+textarea {
+  width: 100%;
+  height: 80px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  resize: none;
 }
+
 button {
-    background-color: #0078d7;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
+  background-color: #0078d7;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
+
 button:hover {
-    background-color: #005bb5;
+  background-color: #005bb5;
 }
+
+/* Список заметок */
+.notes-list h2 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: center;
+}
+
 ul {
-    list-style: none;
-    padding: 0;
-}
-li {
-    background: #f9f9f9;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-left: 4px solid #0078d7;
-    border-radius: 4px;
-}
-li:hover {
-    background: #f1f1f1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.note {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #f9f9f9;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-left: 4px solid #0078d7;
-    border-radius: 4px;
-}
-.note button {
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    font-size: 14px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin: 0;
+.note-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: white;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #0078d7;
+  gap: 1rem;
 }
 
-.note button:hover {
-    background-color: darkred;
+.note-card:hover {
+  background: #f1f1f1;
+}
+
+.note-content p {
+  max-width: 100%;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.note-content {
+  max-height: 100px;
+  overflow-y: auto;
+  padding: 5px;
+}
+
+.note-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.note-actions button {
+  font-size: 14px;
+  padding: 8px 12px;
+}
+
+.button-delete {
+  background-color: red;
+}
+
+.button-delete:hover {
+  background-color: darkred;
+}
+
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 600px) {
+  .note-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .note-actions {
+    flex-direction: row;
+    gap: 5px;
+    margin-top: 10px;
+  }
 }

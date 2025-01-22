@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактировать заметку</title>
+</head>
+<body>
+    <h1>Редактор заметки</h1>
+    <form method="POST">
+        <textarea name="updated_note" required>{{ note }}</textarea>
+        <button type="submit">Сохранить</button>
+    </form>
+    <a href="{{ url_for('notes') }}">Назад</a>
+</body>
+</html>

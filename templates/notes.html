@@ -1,6 +1,8 @@
 <!doctype html>
-<html>
+<html lang="ru">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Заметки</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='notes.css') }}">
 </head>
@@ -9,21 +11,37 @@
         <h1>Мои заметки</h1>
     </header>
     <main>
-        <form method="POST">
-            <input type="text" name="note" placeholder="Введите заметку" required>
-            <button type="submit">Добавить</button>
-        </form>
-        <ul class="">
-            {% for note in notes %}
-            <li class="note">
-                {{ note }}
-                <form method="POST" style="display:inline;">
-                    <input type="hidden" name="note_to_delete" value="{{ note }}">
-                    <button type="submit">Удалить</button>
-                </form>
-            </li>
-            {% endfor %}
-        </ul>    
+        <!-- Добавление новой заметки -->
+        <section class="note-input">
+            <form method="POST">
+                <h2>Добавить новую заметку</h2>
+                <textarea name="note" placeholder="Введите текст заметки..." required></textarea>
+                <button type="submit">Добавить</button>
+            </form>
+        </section>
+
+        <!-- Список заметок -->
+        <section class="notes-list">
+            <h2>Список заметок</h2>
+            <ul>
+                {% for note in notes %}
+                <li class="note-card">
+                    <div class="note-content">
+                        <p>{{ note[1] }}</p>
+                    </div>
+                    <div class="note-actions">
+                        <a to="#">
+                            <button type="button" class="button-edit">Редактировать</button>
+                        </a>
+                        <form method="POST">
+                            <input type="hidden" name="note_to_delete" value="{{ note[0] }}">
+                            <button type="submit" class="button-delete">Удалить</button>
+                        </form>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
     </main>
 </body>
 </html>
