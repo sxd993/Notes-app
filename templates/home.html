@@ -2,12 +2,24 @@
 <html>
 <head>
     <title>Главная</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="stylesheet" href=" {{url_for('static',filename='home.css')}} ">
 </head>
 <body>
     <div class="container">
         <h1>Добро пожаловать!</h1>
-        <a href="{{ url_for('notes') }}">Перейти к заметкам</a>
+        <form method="POST">
+            <div class="login">
+                <label for="first">Username:</label>
+                <input type="text" id="first" name="login" 
+                    placeholder="Enter your Username" required>
+            </div>
+            <div class="password">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" 
+                    placeholder="Enter your Password" required>
+            </div>
+            <button type="submit" class="login-button">Войти</button>
+        </form>
     </div>
 </body>
 </html>

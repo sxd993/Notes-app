@@ -15,8 +15,22 @@ def execute_query(query, params=(), fetch=False):
             return cur.fetchall()
         conn.commit()
 
-# Главная страница заметок
+
+
+# Cтраница авторизации
 @app.route('/', methods=['GET', 'POST'])
+def home_page():
+    if request.method == 'POST':
+        login = request.form.get('login')
+        password = request.form.get('password') #Передает через форму данные
+
+
+    return render_template('home.html')
+
+
+
+# Главная страница заметок
+@app.route('/notes', methods=['GET', 'POST'])
 def notes_page():
     if request.method == 'POST':
         note = request.form.get('note')
@@ -58,7 +72,8 @@ def edit_note_page():
             updated_note = request.form.get('updated_note')
 
             # Обновляем заметку в базе данных
-            cur.execute("UPDATE notes SET content = ? WHERE id = ?", (updated_note, note_id))
+            cur.execute("UPDATE notes SET content = ? WHERE id = ?",
+                        (updated_note, note_id))
             conn.commit()
 
             # Перенаправляем на страницу со списком заметок
